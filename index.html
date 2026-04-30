@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earclacks - Battle Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="title">EARCLACKS</h1>
+      <p class="subtitle">Automatic Battle Arena</p>
+    </header>
+
+    <div class="main-content">
+      <div class="arena-container">
+        <canvas id="gameCanvas" width="800" height="800"></canvas>
+      </div>
+
+      <div class="sidebar">
+        <div class="stats-panel">
+          <div class="stat-row">
+            <span class="team blue" data-team="blue">Blue Team:</span>
+            <span id="blueCount" class="count">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="team red" data-team="red">Red Team:</span>
+            <span id="redCount" class="count">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Alive:</span>
+            <span id="aliveCount" class="count total">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Time:</span>
+            <span id="elapsedTime" class="count time">00:00.00</span>
+          </div>
+        </div>
+
+        <div class="controls-panel">
+          <div class="control-group">
+            <label class="control-label">Speed:</label>
+            <div class="speed-buttons">
+              <button class="speed-btn" data-speed="0.5">0.5x</button>
+              <button class="speed-btn active" data-speed="1.0">1.0x</button>
+              <button class="speed-btn" data-speed="2.0">2.0x</button>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">
+              <input type="checkbox" id="muteAudio" checked>
+              Mute Audio
+            </label>
+          </div>
+          <button id="restartBtn" class="btn-restart">Restart Simulation</button>
+        </div>
+
+        <div class="legend-panel">
+          <h3 class="legend-title">Legend</h3>
+          <div class="legend-item">
+            <span class="legend-color blue"></span>
+            <span class="legend-text">Blue Team</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-color red"></span>
+            <span class="legend-text">Red Team</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-weapon blaster"></span>
+            <span class="legend-text">Blaster: Fast, medium damage, long range</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-weapon burst"></span>
+            <span class="legend-text">Burst Cannon: Spread, low damage, short range</span>
+          </div>
+        </div>
+
+        <div id="winnerOverlay" class="winner-overlay hidden">
+          <h2 class="winner-title">Winner</h2>
+          <p id="winnerText" class="winner-text"></p>
+          <button id="winnerRestartBtn" class="btn-restart winner-btn">Play Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
